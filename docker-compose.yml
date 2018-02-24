@@ -1,0 +1,34 @@
+jenkins:
+  image: 'jenkinsci/blueocean'
+  ports:
+    - '8080:8080'
+    - '50000:50000'
+  volumes:
+    - 'jenkins-data:/var/jenkins_home'
+    - '/var/run/docker.sock:/var/run/docker.sock'
+cache:
+  image: redis
+  read_only: true
+  ports:
+    - "6379:6379"
+db:
+  image: postgres
+  command: postgres
+  environment:
+    - "POSTGRES_USER=cds"
+    - "POSTGRES_PASSWORD=cds"
+    - "POSTGRES_DB=cds"
+  ports:
+    - "5432:5432"
+  read_only: false
+mq:
+  image: rabbitmq:3-management
+  ports:
+    - "15672:15672"
+    - "5672:5672"
+  read_only: true
+es:
+  build: ./docker/es/
+  ports:
+    - "9200:9200"
+    - "9300:9300"
