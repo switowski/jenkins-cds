@@ -13,8 +13,11 @@ RUN apk add --no-cache --update \
     nodejs \
     nodejs-npm \
     libffi-dev \
-    openssl-dev \
+    libxml2-dev \
+    libxslt-dev \
+    libressl-dev \
     postgresql-dev \
+    imagemagick \
     && pip install virtualenv \
     && rm -rf /var/cache/apk/*
 
