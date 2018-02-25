@@ -14,6 +14,7 @@ RUN apk add --no-cache --update \
     nodejs-npm \
     libffi-dev \
     openssl-dev \
+    postgresql-dev \
     && pip install virtualenv \
     && rm -rf /var/cache/apk/*
 
