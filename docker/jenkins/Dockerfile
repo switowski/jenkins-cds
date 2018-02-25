@@ -10,8 +10,8 @@ RUN apk add --no-cache --update \
     curl \
     git \
     gcc \
-    && curl -sL https://deb.nodesource.com/setup_9.x | bash - \
-    && apk install -y nodejs \
+    nodejs \
+    nodejs-npm \
     && pip install virtualenv \
     && rm -rf /var/cache/apk/*
 
