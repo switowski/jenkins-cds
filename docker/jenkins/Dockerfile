@@ -17,8 +17,4 @@ RUN apk add --no-cache --update \
     && pip install virtualenv \
     && rm -rf /var/cache/apk/*
 
-# Fix permissions
-RUN npm config set user 0 \
-    npm config set unsafe-perm true
-
 USER jenkins
