@@ -22,7 +22,8 @@ RUN apk add --no-cache --update \
     libxslt-dev \
     libressl-dev \
     postgresql-dev \
-    imagemagick \
+    # Imagemagic 7 has a bug
+    imagemagick6 \
     && pip install virtualenv \
     && rm -rf /var/cache/apk/*
 
