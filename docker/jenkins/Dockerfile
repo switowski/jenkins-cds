@@ -12,7 +12,12 @@ RUN apk add --no-cache --update \
     gcc \
     nodejs \
     nodejs-npm \
+    # Pillow
+    jpeg-dev \
+    zlib-dev \
     libffi-dev \
+    freetype-dev \
+    libmspack-dev\
     libxml2-dev \
     libxslt-dev \
     libressl-dev \
