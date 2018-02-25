@@ -6,6 +6,21 @@ jenkins:
   volumes:
     - '/jenkins-data:/var/jenkins_home'
     - '/var/run/docker.sock:/var/run/docker.sock'
+  user: root
+  environment:
+    - "APP_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
+    - "APP_BROKER_URL=amqp://guest:guest@mq:5672//"
+    - "APP_CACHE_REDIS_URL=redis://cache:6379/0"
+    - "APP_CACHE_TYPE=redis"
+    - "APP_CELERY_RESULT_BACKEND=redis://cache:6379/2"
+    - "APP_SEARCH_ELASTIC_HOSTS=es:9200"
+    - "APP_SECRET_KEY=CHANGE_ME"
+    - "APP_SQLALCHEMY_DATABASE_URI=postgresql://cds:cds@db/cds"
+  links:
+    - cache
+    - es
+    - mq
+    - db
 cache:
   image: redis
   ports:
