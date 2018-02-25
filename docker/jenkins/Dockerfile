@@ -26,5 +26,3 @@ RUN apk add --no-cache --update \
     imagemagick6 \
     && pip install virtualenv \
     && rm -rf /var/cache/apk/*
-
-USER jenkins
